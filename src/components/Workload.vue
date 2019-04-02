@@ -3,20 +3,23 @@
     <h1>{{ msg }}</h1>
 
     <title>Workload</title>
+    <h1>Workloads</h1>
 
     <div style="overflow-x:auto;">
       <table class="workloadTable">
         <tr>
-          <th>Workload</th>
+          <th>SpecName</th>
+          <th>Environment</th>
+          <th>Region</th>
           <th>Status</th>
           <th>Profile</th>
         </tr>
-        <tr v-for="workload in workloads" v-bind:key="workload" v-bind:value="workload">
+        <tr v-for="workload in workloads" v-bind:key="workload.SpecName">
           <td>
-            <a v-bind:href="'/workload/' + workload.name">{{workload.name}}</a>
+            <a v-bind:href="'/workload/' + workload.SpecName">{{workload.SpecName}}</a>
           </td>
-          <td>{{ workload.status }}</td>
-          <td>{{ workload.profile }}</td>
+          <td>{{ workload.WorkloadFilterTagValue }}</td>
+          <td>{{ workload.WorkloadRegion }}</td>
         </tr>
       </table>
     </div>
@@ -31,9 +34,26 @@ export default {
   props: {
     msg: String
   },
+  mounted() {
+    this.getWorkloads()
+  },
+  methods: {
+    getWorkloads: function() {
+      // $http is from vue-resource
+      this.$http.get('https://p405u59q3c.execute-api.us-west-2.amazonaws.com/Dev' + '/workloads/')
+        .then(function(response){
+          console.log(response);
+          this.workloads = response.body.Workloads;
+        })
+        , error => {
+          console.error(error);
+        }
+    }
+  },
   data() {
     return {
-      workloads:
+      workloads: [],
+      workloadsXXX:
         [
           { "name": "NF08", "status": "Running", "profile": "Large" },
           { "name": "QA02", "status": "Stopped", "profile": "Small" },
@@ -41,7 +61,7 @@ export default {
           { "name": "DV05", "status": "Stopped", "profile": "Patch" }
         ]
 
-        <!-- Scheduler Response Data -->
+
         // {
         //   "Workloads":
         //     [
