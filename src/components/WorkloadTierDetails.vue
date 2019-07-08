@@ -1,5 +1,5 @@
 <template>
-  <div>
+    <main> 
     <h1>{{ msg }}</h1>
 
     <div id="tierInfo">
@@ -19,8 +19,8 @@
           </tr>
         </div>
       </table>
-    </div>
-  </div>
+      </div>
+   </main> 
 </template>
 
 <script>
@@ -30,7 +30,7 @@ export default {
   },
   data() {
     return {
-      workloadName: 'Test',
+      workloadName: 'Tiers',
       profilesList : [
         {
           profileName : 'Small',
@@ -67,18 +67,23 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-table.tierDetailsTbl {
-  border: 1px solid black;
-  display: flex;
+#tierInfo{
+  margin-left:200px;
 }
 
-tr:hover {background-color: #f5f5f5;}
+h3{
+  margin-right:200px;
+}
+
+table.tierDetailsTbl {
+  display:flex;
+}
+
+tr:hover {background-color: #dfb9ae;}
 
 tr, th, td {
   height: 30px;
   padding: 20px;
-  border: 1px solid #ddd;
   width: 80%;
 }
 
@@ -87,10 +92,12 @@ td#tierName  {
 }
 
 td#instanceType, td#tierName {
-    background-color: #eeffe6;
+    background-color: rgb(250, 204, 161);
 }
 th {
-  background-color: #99ccff;
-  color: black;
+  background-color: #d45d3c;
+  color: rgb(66, 65, 65);
 }
+
+
 </style>

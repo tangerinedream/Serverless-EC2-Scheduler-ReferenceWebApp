@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main> 
     <h1>{{ msg }}</h1>
 
     <div class="workloadInfo" align="left">
@@ -15,7 +15,7 @@
         </tr>
 
       </table>
-      <button name="tierDetails" type="button" value="Tier Details" >Tier Details</button>
+      <button name="tierDetails" type="button" value="Tier Details">Tier Details</button>
 
 
     </div>
@@ -59,15 +59,12 @@
       <button>Submit</button>
     </div>
 
-    <div class="results" align="left">
+    <div class="results">
       <h3>Server Response</h3>
       <!-- <textarea rows="40" cols="80" v-model="JSON.stringify(serverResponse, null, 4)"></textarea> -->
       <textarea rows="40" cols="80" v-model="serverResponse"></textarea>
-
-
-    </div>
-
-  </div>
+      </div>
+  </main> 
 </template>
 
 <script>
@@ -137,24 +134,45 @@ h3 {
 }
 
 table.workloadStatusTbl {
-  border: 1px solid black;
-  margin-left:20px;
+  background-color: #dfb9ae;
+  margin-left:20px; 
 }
 
-tr:hover {background-color: #f5f5f5;}
+tr:hover {background-color: rgb(84, 107, 104);}
 
 th, td {
   height: 30px;
   padding: 15px;
-  border: 1px solid #ddd;
 }
 th {
   background-color: #99ccff;
   color: black;
 }
 
-button {
+.workloadInfo button {
   margin-left:20px;
+  background-color: rgb(84, 107, 104);
+  border: 2px solid rgb(84, 107, 104);  
+  color: rgb(173, 173, 173);
+  padding: 20px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 4px;   
+}
+
+#submit button {
+  margin-left:20px;
+  background-color: rgb(84, 107, 104);
+  border: 2px solid rgb(84, 107, 104); 
+  color: rgb(173, 173, 173);
+  padding: 20px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 4px;   
 }
 
 ul {
@@ -163,7 +181,12 @@ ul {
 }
 li {
   display: inline-block;
-  margin: 0 10px;
+  margin: 0 10px; 
+}
+
+.results textarea{
+  background-color: #f7e5da;
+  
 }
 
 </style>

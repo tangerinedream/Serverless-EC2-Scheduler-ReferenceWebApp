@@ -1,22 +1,26 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-
-
-    <!-- <h3>Actions</h3> -->
-    <button name="Workloads" v-on:click="">Workloads</button>
-    <button name="Tiers" v-on:click="">Tiers</button>
-
-    <h3></h3>
-
-    <ul>
-      <li><a href="https://github.com/tangerinedream/Serverless-EC2-Scheduler">Serverless-EC2-Scheduler documentation</a>
-</li>
-      <li>Ver: {{ ver }}</li>
-      <li>Endpoint: {{ endpoint }}</li>
-    </ul>
-
+<!-- switch schedulerhome and app, so this is app and app becomes like details or something -->
+<div id='SchedulerHome'>
+  <div class="top">
+    <div class="header"></div>
   </div>
+  <div class="below-top">
+      <nav class="aside-left-nav"></nav>
+      <main class="main">
+        <div class="main-body">
+          <div class="dashboard">
+            <table class="workloadTable">
+        <tr v-for="workload in workloads" v-bind:key="workload.SpecName">
+          <td>
+            <a v-bind:href="'/workload/' + workload.SpecName">{{workload.SpecName}}</a>
+          </td>
+          </tr>
+      </table>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
 </template>
 
 <script>
@@ -24,6 +28,22 @@ export default {
   name: 'SchedulerHome',
   props: {
     msg: String
+  },
+  mounted() {
+    this.getWorkloads()
+  },
+  methods: {
+    getWorkloads: function() {
+      // $http is from vue-resource
+      this.$http.get('https://p405u59q3c.execute-api.us-west-2.amazonaws.com/Dev' + '/workloads/')
+        .then(function(response){
+          console.log(response);
+          this.workloads = response.body.Workloads;
+        })
+        , error => {
+          console.error(error);
+        }
+    }
   },
   data() {
     return {
@@ -36,29 +56,33 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+
+.header{
+  width: 100%;
+  height: 50px;
+  background-color: #b1b1b1;
+  position: absolute;  
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+body {
+  background-color: #272727;
+  margin:0; 
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+
+.aside-left-menu{
+  -webkit-box-flex: 0;
+  flex: 0,0,auto; 
+  width:70px; 
+  overflow: visible;
 }
-a {
-  color: #42b983;
+
+.aside-left-menu #sideMenu{
+  display: flex;
+  display:-webkit-flex;
+  display: -webkit-box;
+  -webkit-box-orient: vertical; 
+  background-color: #666666;
+  flex-direction: column; 
 }
-button {
-  background-color: #4CAF50;
-  border: 2px solid #555555;
-  color: black;
-  padding: 20px 40px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 10px 4px;
-}
+
 </style>

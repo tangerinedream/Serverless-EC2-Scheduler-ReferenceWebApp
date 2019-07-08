@@ -1,6 +1,7 @@
 import Workload from './components/Workload.vue';
 import WorkloadActions from './components/WorkloadActions.vue';
 import WorkloadTierDetails from './components/WorkloadTierDetails.vue';
+import SchedulerHome from './components/SchedulerHome.vue';
 
 
 export default [
@@ -15,5 +16,9 @@ export default [
   {
     path: '/workload/tiers',
     component: WorkloadTierDetails
-  }
+  },
+  {
+    path: '/scheduler/home',
+    component: SchedulerHome
+  } 
 ]

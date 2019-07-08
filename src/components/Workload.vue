@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <main> 
     <h1>{{ msg }}</h1>
 
-    <title>Workload</title>
-    <h1>Workloads</h1>
+    <!-- <title>Workload</title> -->
+    <h3>Workload</h3>
 
     <div style="overflow-x:auto;">
       <table class="workloadTable">
@@ -20,12 +20,16 @@
           </td>
           <td>{{ workload.WorkloadFilterTagValue }}</td>
           <td>{{ workload.WorkloadRegion }}</td>
+          <td>
+            <div class="run-icon"></div>
+          </td>
+          <td></td>
         </tr>
       </table>
     </div>
+     </main> 
 
 
-  </div>
 </template>
 
 <script>
@@ -49,6 +53,7 @@ export default {
           console.error(error);
         }
     }
+    
   },
   data() {
     return {
@@ -93,28 +98,37 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+
 h3 {
-  margin: 40px 0 0;
+margin-top: 100px;
+color: rgb( 240, 240, 240);
 }
 
 table.workloadTable {
-  border: 1px solid black;
-  width: 80%;
-  margin-left:auto;
-  margin-right:auto;
+  width: 70%;
+  margin-left:200px; 
 }
-
-tr:hover {background-color: #f5f5f5;}
 
 th, td {
   height: 30px;
   padding: 15px;
-  border-bottom: 1px solid #ddd;
+  padding: 15px;
+  background-color: rgb(250, 204, 161);
+  
+  
 }
-th {
-  background-color: #99ccff;
-  color: black;
+
+th { 
+  background-color: #d45d3c;
+  color: rgb(44, 44, 44);
 }
+
+
+a:link{text-decoration: none;color:#000000;}
+
+a:visited{text-decoration: none;color:#000000;} 
+
+a:hover {color:#59814c;}
 
 
 
