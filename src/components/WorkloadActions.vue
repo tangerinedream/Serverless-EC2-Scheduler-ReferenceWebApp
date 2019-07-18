@@ -1,8 +1,8 @@
 <template>
   <main> 
-    <h1>{{ msg }}</h1>
-
-    <div class="workloadInfo" align="left">
+    <!-- <h1>{{ msg }}</h1> -->
+  <div class="actions">
+    <div class="workloadInfo" >
       <h3>{{ workloadName }}</h3>
       <table class="workloadStatusTbl">
         <tr>
@@ -23,16 +23,16 @@
     <div class="workloadActions">
       <div id="action-types">
         <h3>Workload Actions</h3>
-        <ul>
-          <li v-for="action in actionTypes" v-bind:key="action" v-bind:value="action">
+        <!-- <ul> -->
+          <label v-for="action in actionTypes" v-bind:key="action" v-bind:value="action">
             <input
               type="radio"
               v-model="selected.action"
               v-bind:id="action"
               v-bind:value="action"
-              name="selected.action">{{action}}<br />
-          </li>
-        </ul>
+              name="selected.action">{{action}}
+          </label>
+        <!-- </ul> -->
       </div>
 
       <div id="profiles" v-show="showProfiles">
@@ -55,14 +55,15 @@
       </div>
     </div>
 
-    <div id="submit" align="left">
+    <div id="submit">
       <button>Submit</button>
+    </div>
     </div>
 
     <div class="results">
       <h3>Server Response</h3>
       <!-- <textarea rows="40" cols="80" v-model="JSON.stringify(serverResponse, null, 4)"></textarea> -->
-      <textarea rows="40" cols="80" v-model="serverResponse"></textarea>
+      <textarea rows="40" cols="60" v-model="serverResponse"></textarea>
       </div>
   </main> 
 </template>
@@ -124,69 +125,160 @@ export default {
 
 
 <style scoped>
+main{
+  box-sizing: border-box;
+  display:flex;
+  color: #dddddd;
+  padding-top: 80px;
+  flex-direction:row;
+  justify-content: space-around;
+  overflow:auto;
+}
 
-.workloadActions {
+.actions{
+  border: 2px solid #7ac59c; 
+  border-radius: 12px;
   display: flex;
+  width: 500px;
+  justify-content: center;
+  justify-content: space-around;
+  flex-direction: column;
+  margin:10px;
+}
+
+
+.transition {
+  transition: all 0.3s ease-out;
+}
+
+#action-types{
+  /* display: flex;  */
+  /* position: relative; */
+  height: 80px;
+  width: 300px;
+}
+
+#action-types h3{
+  padding-bottom:15px;
+}
+
+input[type="radio"]{
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
+
+#action-types label{
+  vertical-align: middle; 
+  text-align: center;
+  cursor: pointer;
+  background-color: rgb(46, 46, 46);
+  color: #58ba83;
+  padding: 20px 20px;
+  border-radius: 12px;
+  transition: all 0.3s ease-out;
+  margin:10px;
+  /* border: 2px solid #58ba83; */
+}
+
+input[type="radio"]:checked + label {
+  background-color: #58ba83;
+}
+
+#profiles{
+  margin-top: 20px;
+}
+
+select{
+  margin-top: 8px;
+  border-radius: 3px;
+  background-color: rgb(46, 46, 46);
+  width: 90%;  
+  height: 50px;
+  padding: 10px;
+  color: #58ba83;
+  cursor: pointer;
+  border: none;
+}
+
+select:focus{
+  outline:none;
 }
 
 h3 {
-  margin: 40px 0 0;
+	color: #AAAAAA;
+}
+
+h1{
+  margin-top: 0;
+  
 }
 
 table.workloadStatusTbl {
-  background-color: #dfb9ae;
-  margin-left:20px; 
+  background-color: rgb(46, 46, 46);
+  border-radius: 12px;
 }
 
-tr:hover {background-color: rgb(84, 107, 104);}
+tr:hover {background-color: #7ac59c;}
 
-th, td {
+th, td {  
+  color: #7ac59c;
   height: 30px;
   padding: 15px;
 }
+td{
+  border: none;
+}
 th {
-  background-color: #99ccff;
   color: black;
 }
 
 .workloadInfo button {
-  margin-left:20px;
-  background-color: rgb(84, 107, 104);
-  border: 2px solid rgb(84, 107, 104);  
-  color: rgb(173, 173, 173);
+  background-color: #282828;
+  border: 2px solid #7ac59c;  
+  border-radius: 12px;
+  color: rgb(240, 240, 240);
+  font-weight: normal;
   padding: 20px 40px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
-  margin: 10px 4px;   
+  margin: 10px 4px; 
+  cursor: pointer;
 }
 
 #submit button {
-  margin-left:20px;
-  background-color: rgb(84, 107, 104);
-  border: 2px solid rgb(84, 107, 104); 
-  color: rgb(173, 173, 173);
+  background-color: #282828; 
+  border: 2px solid #7ac59c; 
+  border-radius: 12px;
+  color: rgb(240, 240, 240);
+  font-weight: normal;
   padding: 20px 40px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
-  margin: 10px 4px;   
+  cursor: pointer;
 }
 
-ul {
+/* ul { 
   list-style-type: none;
   padding: 0;
 }
-li {
-  display: inline-block;
+li { 
   margin: 0 10px; 
-}
+}*/
+
+
 
 .results textarea{
-  background-color: #f7e5da;
-  
+  justify-content: space-around;
+  border-radius: 12px;
+  box-sizing: border-box;
+  background-color: #242424;
+  border: 2px solid #7ac59c; 
+  color: rgb(240, 240, 240);
+  padding: 20px;
+  outline:none;
 }
 
 </style>

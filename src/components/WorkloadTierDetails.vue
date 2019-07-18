@@ -1,9 +1,8 @@
 <template>
-    <main> 
-    <h1>{{ msg }}</h1>
+    <main>
 
     <div id="tierInfo">
-      <h3>{{ workloadName }}</h3>
+      <!-- <h1>{{ workloadName }}</h1> -->
       <table class="tierDetailsTbl">
 
         <div v-for="profile in profilesList" :key="profile">
@@ -68,23 +67,30 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #tierInfo{
-  margin-left:200px;
+  display: flex;
+  box-sizing: border-box;
+  padding-top: 100px; 
+  justify-content: space-around;
 }
 
-h3{
-  margin-right:200px;
+h1 {
+margin-top: 0; 
+margin-bottom: 50px;
+color: rgb( 240, 240, 240);
+text-align: left;
 }
 
 table.tierDetailsTbl {
+  /* justify-content: space-around;  */
   display:flex;
+  border-collapse: collapse; 
+  width: 95%;
 }
-
-tr:hover {background-color: #dfb9ae;}
 
 tr, th, td {
   height: 30px;
   padding: 20px;
-  width: 80%;
+  width: 800px;
 }
 
 td#tierName  {
@@ -92,11 +98,12 @@ td#tierName  {
 }
 
 td#instanceType, td#tierName {
-    background-color: rgb(250, 204, 161);
+  background-color: rgb(63, 63, 63);
+  color: rgb(226, 226, 226);
 }
 th {
-  background-color: #d45d3c;
-  color: rgb(66, 65, 65);
+  background-color: rgb(49, 49, 49);
+  color: #7ac59c;
 }
 
 
