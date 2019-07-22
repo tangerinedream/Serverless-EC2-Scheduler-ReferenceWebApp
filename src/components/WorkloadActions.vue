@@ -53,11 +53,12 @@
         <p>Action: <b>{{ selected.action }}</b></p>
         <p v-show="showProfiles">Profile: <b>{{ selected.profile}}</b></p>
       </div>
-    </div>
-
-    <div id="submit">
+      <div id="submit">
       <button>Submit</button>
     </div>
+    </div>
+
+    
     </div>
 
     <div class="results">
@@ -139,7 +140,8 @@ main{
   border: 2px solid #7ac59c; 
   border-radius: 12px;
   display: flex;
-  width: 500px;
+  width: 40%;
+  height: 90%;
   justify-content: center;
   justify-content: space-around;
   flex-direction: column;
@@ -152,8 +154,9 @@ main{
 }
 
 #action-types{
-  /* display: flex;  */
-  /* position: relative; */
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 10%;
   height: 80px;
   width: 300px;
 }
@@ -217,14 +220,21 @@ h1{
 table.workloadStatusTbl {
   background-color: rgb(46, 46, 46);
   border-radius: 12px;
+  flex-direction: column;
+  margin-left: 30%;
+  margin-right: 30%;
 }
 
-tr:hover {background-color: #7ac59c;}
+tr:hover {
+  background-color: #7ac59c;
+  border-radius: 12px;
+  }
 
 th, td {  
-  color: #7ac59c;
-  height: 30px;
-  padding: 15px;
+  color: #dddddd;
+  height: 20%;
+  padding: 20px;
+  width: 20%;
 }
 td{
   border: none;
@@ -268,10 +278,14 @@ li {
   margin: 0 10px; 
 }*/
 
-
+.results{
+  justify-content: space-around;
+  width: 40%;
+  height: 90%;
+}
 
 .results textarea{
-  justify-content: space-around;
+  /* justify-content: space-around; */
   border-radius: 12px;
   box-sizing: border-box;
   background-color: #242424;

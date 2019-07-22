@@ -8,7 +8,6 @@
   </option>
 </select>
 </div>
- <!-- <span>Selected: {{ selected }}</span>  -->
  <div class="environment">
    <div class="label">Environment</div>
  <select v-model="selectedEnvironment">
@@ -72,13 +71,14 @@
 }
 
 select{
-  border-radius: 3px;
+  border-radius: 0px;
   background-color: rgb(46, 46, 46);
   width: 90%;  
   height: 50px;
   padding: 10px;
   color: rgb(185, 185, 185);
   cursor: pointer;
+  font-size: 14px;
 }
 
 select:focus{

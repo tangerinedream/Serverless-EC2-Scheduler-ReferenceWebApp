@@ -124,6 +124,7 @@ export default {
       font-size: 1em;
       color: rgb(226, 226, 226);
       outline:none;
+      padding-left: 10px;
   }
 
   .border-effect{

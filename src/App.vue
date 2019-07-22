@@ -18,7 +18,7 @@
 <div id=sideMenu>
   <div id="side-box"></div>
     <div id="workloadSide">
-      <AutocompleteComponent :items="['Apple', 'Banana', 'Orange', 'Mango', 'Pear', 'Peach', 'Grape', 'Tangerine', 'Pineapple']"> 
+      <AutocompleteComponent :items="['SampleWorkload-01', 'SampleWorkload-02', 'SampleWorkload-03', 'SampleWorkload-04', 'SampleWorkload-05', 'SampleWorkload-06', 'SampleWorkload-07', 'SampleWorkload-08', 'SampleWorkload-09']"> 
          </AutocompleteComponent> 
       <!-- <div class="search-wrapper"> -->
 
@@ -50,13 +50,13 @@
 
 <main>
   <div id="topTabs">
-    <button
+     <button 
       v-for="tab in tabs"
       :key="tab"
       @click="selected = tab;"
       :class="['tab-btn', { active: selected === tab }]">
       {{ tab | tabTitle }}
-    </button>
+    </button> 
 
      <component :is="selected" class="tab"></component> 
     </div> 
@@ -190,7 +190,7 @@ a:visited{text-decoration: none;color:rgb(240, 240, 240);}
   display: block;
   text-decoration: none;
 }
-li:hover {
+ul.sub-menu:hover {
   color: #7ac59c;
 }
 .user ul,
@@ -214,7 +214,7 @@ li:hover {
   background-color: #242424;
   box-shadow: 1px 0 2px 0px rgb(27, 27, 27);  
   position: absolute; 
-  height: 100%;  
+  height: 120%;  
   width:18%; 
   color:rgb(226, 226, 226);
 }
@@ -242,7 +242,7 @@ h1{
   display: inline-block;
   font-weight: 600;
   font-size: 16px;
-  margin: 22px 4px;
+  margin: 30px 4px;
   background-color:#202020;
   box-shadow: inset 0 -1rem 0.75rem -1rem rgba(0, 0, 0, 0.25);
   opacity:0.6;
@@ -264,7 +264,7 @@ h1{
 }
 
 .tab{
-  top:10px;
+  top:22px;
   align-items: center;
   left:auto;  
   right: auto; 

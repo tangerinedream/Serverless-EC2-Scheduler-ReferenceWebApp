@@ -1,10 +1,10 @@
 <template>
   <main> 
     <!-- <h1>Workload</h1> -->
-    <div class="search-wrapper">
+    <!-- <div class="search-wrapper">
         <input class="border-effect" type="text" v-model="search" placeholder="Search Workloads"/>
           <span class="focus-border"></span>
-      </div>
+      </div> -->
 
     <div class="table" style="overflow-x:auto;">
       <table class="workloadTable">
@@ -93,7 +93,7 @@ export default {
 <style scoped>
 
 main{
-  display: flex; 
+  /* display: flex;  */
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
