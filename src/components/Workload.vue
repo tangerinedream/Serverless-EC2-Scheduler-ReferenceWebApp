@@ -93,9 +93,6 @@ export default {
 <style scoped>
 
 main{
-  /* display: flex;  */
-  flex-direction: column;
-  align-items: center;
   box-sizing: border-box;
   padding-top: 100px;
 }
@@ -146,6 +143,7 @@ text-align: left;
 }
 
 table.workloadTable {
+  margin-left:3%;
   border-collapse: collapse;  
   width: 95%; 
 }
