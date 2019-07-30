@@ -45,7 +45,6 @@
 </template>
 
 <script>
-import tempWorkload from '../temptest/tempWorkloads.json'
 export default {
   name: 'Workload',
   props: {
