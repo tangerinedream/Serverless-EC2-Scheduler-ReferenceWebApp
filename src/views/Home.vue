@@ -1,12 +1,12 @@
 <template>
-  <main> 
-    <!-- <h1>Workload</h1> -->
-    <!-- <div class="search-wrapper">
-        <input class="border-effect" type="text" v-model="search" placeholder="Search Workloads"/>
+   <div class="home"> 
+    <h3>Workloads</h3>
+     <div class="search-wrapper">
+        <input class="border-effect" type="text" spellcheck="false" v-model="search" placeholder="Search Workloads"/>
           <span class="focus-border"></span>
-      </div> -->
+      </div>
 
-    <div class="table" style="overflow-x:auto;">
+       <div class="table" style="overflow-x:auto;">
       <table class="workloadTable">
         <tr>
           <th>Status</th>
@@ -37,17 +37,16 @@
           <td></td>
         </tr>
       </table>
-      
-    </div>
-     </main> 
-
-
+    </div> 
+   </div>
 </template>
 
+
+
 <script>
-import tempWorkload from '../temptest/tempWorkloads.json'
+
 export default {
-  name: 'Workload',
+  name: 'home',
   props: {
     msg: String
   },
@@ -56,17 +55,31 @@ export default {
       workloads: [],
       search: ''
     }
-  }, // data
+  },
   computed: {
     filteredWorkloads (){
       console.log(this.$props)
       if(this.search){
         return this.workloads.filter((workload)=>{
-          return workload.SpecName.startsWith(this.search);
+          return workload.SpecName.toLowerCase().startsWith(this.search);
         })
       }else{
         return this.workloads;
       }
+      /*if(this.search){
+        return this.workloads.filter((workload)=>{
+          return workload.WorkloadFilterTagValue.startsWith(this.search);
+        })
+      }else{
+        return this.workloads;
+      }
+      if(this.search){
+        return this.workloads.filter((workload)=>{
+          return workload.WorkloadRegion.startsWith(this.search);
+        })
+      }else{
+        return this.workloads;
+      }*/
     }
   },
   mounted() {
@@ -82,39 +95,73 @@ export default {
         })
         , error => {
           console.error(error);
+          // this.workloads = 
+          //    {"Workloads":
+          //       [
+          //           {
+          //           "Name": "TestWorkload_1",
+          //           "Status": "Running",
+          //           "Environment": "NF01",
+          //           "SpecName": "Large",
+          //           "Region": "us-east-1",
+          //           "Profile": "Large"
+          //           },
+          //           {
+          //           "Name": "TestWorkload_2",
+          //           "Status": "Running",
+          //           "Environment": "NF02",
+          //           "SpecName": "Small",
+          //           "Region": "us-east-1",
+          //           "Profile": "Small"
+          //           },
+          //           {
+          //           "Name": "TestWorkload_3",
+          //           "Status": "Stopped",
+          //           "Environment": "CI10",
+          //           "SpecName": "Large",
+          //           "Region": "eu-west-1",
+          //           "Profile": "Large"
+          //           }
+          //       ]
+          //   }
         }
     }
   }
-} // default
+}
+
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-main{
+<style>
+.home{ 
+  /* display: flex;
+  flex-flow: row wrap; */
   box-sizing: border-box;
-  padding-top: 100px;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
 }
 
-
-h1 {
-margin-bottom: 50px;
-color: rgb( 240, 240, 240);
-text-align: left;
+.home h3{
+  margin-left: 50px;
+  margin-top: 6%;
+  float: left; 
+  font-size: 1.6rem; 
+  color: rgb(202, 202, 202);
+  font-weight: normal;
 }
 
-.search-wrapper{
-  margin-top: 20px;
-  margin-bottom: 70px;
-  width: 80%;
+.search-wrapper{ 
+  margin-top: 6%;
+  margin-bottom: 25px;
+  display: inline-block;
+  width: 25%;
 }
 
  input[type="text"]{
   box-sizing: border-box;
-  padding-left:0px;
-  background-color:#202020;
+  background-color:rgb(65, 65, 65);
   width: 100%;
-  font-size: 20px;
+  font-size: 1.6rem;
   color: rgb(226, 226, 226);
   outline: none;
 }
@@ -123,42 +170,33 @@ text-align: left;
   border:0;
   padding: 7px 0;
   border-bottom: 1px solid rgb(226, 226, 226);
-}
-
-.border-effect ~ .focus-border{
-  position: absolute;
-  bottom:0;
-  left:0;
-  width: 0;
-  height: 3px;
-  background-color: #7ac59c;
   transition: 0.3s
 }
 
-.border-effect:focus ~ .focus-border {
-  width: 100%;
-  transition: 0.3s;
-  left:0;
-}
+.border-effect:focus{
+    border-bottom: 1px solid #7ac59c;
+    transition: 0.3s
+  }
 
-table.workloadTable {
-  margin-left:3%;
-  border-collapse: collapse;  
-  width: 95%; 
+table.workloadTable { 
+  margin: auto;
+  margin-top: 0;
+  border-spacing: 0 2px;
+  width:98%; 
 }
 
 th, td {
-  height: 30px;
+  height: 40px;
   padding: 15px;
   padding: 15px;
-  background-color: rgb(63, 63, 63);
+  background-color: rgb(46, 46, 46);
   color: rgb(212, 212, 212);
 }
 
 
 
 th { 
-  background-color: rgb(49, 49, 49);
+  background-color: rgb(36, 36, 36);
   color: #7ac59c;
 }
 
@@ -167,6 +205,6 @@ th {
 a:link{text-decoration: none;color: rgb(240, 240, 240);}
 
 a:visited{text-decoration: none;color:rgb(240, 240, 240);} 
-
-
 </style>
+
+

@@ -199,7 +199,7 @@ select{
   width: 90%;  
   height: 50px;
   padding: 10px;
-  color: #58ba83;
+  color: #dddddd;
   cursor: pointer;
   border: none;
 }
@@ -268,6 +268,7 @@ th {
   text-decoration: none;
   font-size: 16px;
   cursor: pointer;
+  margin-bottom: 15px;
 }
 
 /* ul { 

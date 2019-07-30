@@ -83,7 +83,7 @@ text-align: left;
 table.tierDetailsTbl {
   /* justify-content: space-around;  */
   display:flex;
-  border-collapse: collapse; 
+  border-spacing: 2px 2px;
   width: 95%;
 }
 
