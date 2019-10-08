@@ -12,6 +12,7 @@ Vue.use(VueResource);
 // Plugin for page routing
 Vue.use(VueRouter);
 const router = new VueRouter({
+  mode: 'history',
   routes: RouteMap
 });
 
