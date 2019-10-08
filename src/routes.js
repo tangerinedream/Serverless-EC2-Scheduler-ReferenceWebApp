@@ -5,8 +5,8 @@ import SchedulerHome from './components/SchedulerHome.vue';
 
 
 export default [
-  { path: '/', component: SchedulerHome },
   { path: '/workload', component: Workload },
   { path: '/workload/tiers', component: WorkloadTierDetails },
-  { path: '/workload/actions', component: WorkloadActions }
+  { path: '/workload/actions', component: WorkloadActions },
+  { path: '*', component: SchedulerHome }
 ]
