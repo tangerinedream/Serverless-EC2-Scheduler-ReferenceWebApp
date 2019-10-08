@@ -10,3 +10,6 @@ export default [
   { path: '/workload/actions', component: WorkloadActions },
   { path: '*', component: SchedulerHome }
 ]
+
+// You can include an index.html page to get rid of the wildcard path.
+//   Routes not found will then go to the index.html
