@@ -6,17 +6,18 @@
       <h3>{{ workloadName }}</h3>
       <table class="tierDetailsTbl">
 
-        <div v-for="profile in profilesList" :key="profile">
-          <th colspan="2">{{ profile.profileName }}</th>
+        <div v-for="(profileItem, profile) in profilesList" :key="profile">
+
+          <th colspan="2">{{ profileItem.profileName }}</th>
+
           <tr
-            v-if="profile.tiersDetails != null"
-            v-for="tier in profile.tiersDetails" :key="tier"
+            v-if="profileItem.tiersDetails != null"
+            v-for="(tierItem, tier) in profileItem.tiersDetails" :key="tier"
             style="width:100%">
-            <!-- <div id="tier"> -->
-              <td id="tierName">{{ tier.tierName }}</td>
-              <td id="instanceType">{{ tier.instanceType }}</td>
-            <!-- </div> -->
+              <td id="tierName">{{ tierItem.tierName }}</td>
+              <td id="instanceType">{{ tierItem.instanceType }}</td>
           </tr>
+
         </div>
       </table>
     </div>

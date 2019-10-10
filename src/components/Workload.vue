@@ -40,7 +40,7 @@ export default {
   methods: {
     getWorkloads: function() {
       // $http is from vue-resource
-      this.$http.get('https://p405u59q3c.execute-api.us-west-2.amazonaws.com/Dev' + '/workloads/')
+      this.$http.get('https://b6v0jvea9e.execute-api.us-west-2.amazonaws.com/Dev' + '/workloads/')
         .then(function(response){
           console.log(response);
           this.workloads = response.body.Workloads;
